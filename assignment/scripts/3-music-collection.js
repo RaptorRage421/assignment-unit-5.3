@@ -18,7 +18,6 @@ function addToCollection(collection, title, artist, yearPublished) {
   //console.log('Year Published: ', yearPublished);
   
   myCollection.push(primesCollection);
-  console.log(primesCollection)
   return primesCollection;
 }
 function empty() {
@@ -26,23 +25,24 @@ function empty() {
   return 'Emptied the Collection';
 }
 
-function showCollection(myCollection){
+function showCollection(){
   for (i=0; i<myCollection.length; i++){
-  console.log(`${myCollection[i].title} by ${myCollection[i].artist}, published in ${myCollection[i].yearPublished}`);
+  console.log(`${myCollection[i].title} by ${myCollection[i].artist}, published in ${myCollection[i].yearPublished}, on ${myCollection[i].album} `);
   }
-  
+  return myCollection
 }
 
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
 console.log(addToCollection('Elevate', 'The Longest Road', 'Morgan Page', '2008'));
 
-console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
-console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
-console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
-console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
-console.log(addToCollection('Tell Me Why', 'Tell Me Why (1991 Remix)', 'Supermode', '2023'));
+console.log(addToCollection('Armada Music' , 'Lose This Feeling (Dimenion Remix)', 'Armin van Buuren' +', ' + 'Dimension', '2023'));
+console.log(addToCollection('Atlantic Records UK', 'Wasted Youth (Original Mix)', 'goddard.' + ', ' + 'CatBurns', '2024'));
+console.log(addToCollection('Relentless Records', 'Toxic (Phibes Remix)', 'Songer' + ', ' + 'Phibes', '2024'));
+console.log(addToCollection('Rave Room Recordings', "Vibin'", 'Kide (IT)', '2024'));
+console.log(addToCollection('Axtone Records', 'Tell Me Why (1991 Remix)', 'Supermode' + ', ' + '1991', '2023'));
+console.log(addToCollection('b2s Compilations', 'DLMD (Original Mix)', 'Darren Styles' + ', ' + 'TNT', '2024'))
 
-console.log('Testing showCollection: ' , showCollection(myCollection));
+console.log('Testing showCollection: ' , showCollection());
 
 
 
