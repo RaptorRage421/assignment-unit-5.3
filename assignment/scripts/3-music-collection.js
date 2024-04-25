@@ -5,17 +5,19 @@ const myCollection = [];
 
 function addToCollection(collection, title, artist, yearPublished) {
 
-  let samCollection = {};
-  samCollection.album = collection;
-  samCollection.title = title;
-  samCollection.artist = artist;
-  samCollection.yearPublished = yearPublished;
-  myCollection.push(samCollection);
-  console.log('Testing addToCollection - adding: ', samCollection);
+  collection = {};
+  collection.title = title;
+  console.log('Title: ', title);
+  collection.artist = artist;
+  console.log('Artist: ', artist)
+  collection.yearPublished = yearPublished;
+  console.log('Year Published: ', yearPublished);
+  myCollection.push(collection);
   return myCollection
 }
 
-addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008')
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+
 
 
 
