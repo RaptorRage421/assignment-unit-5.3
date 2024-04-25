@@ -8,41 +8,46 @@ const myCollection = [];
 // 
 function addToCollection(collection, title, artist, yearPublished) {
   let primesCollection = {};
-  primesCollection.album = collection;
-  //console.log('Album: ' , album);
+  primesCollection.collection = collection;
+  //console.log('Album: ' , collection);
   primesCollection.title = title;
- // console.log('Title: ', title);
+  //console.log('Title: ', title);
   primesCollection.artist = artist;
- // console.log('Artist: ', artist)
+  //console.log('Artist: ', artist)
   primesCollection.yearPublished = yearPublished;
   //console.log('Year Published: ', yearPublished);
-  
-  myCollection.push(primesCollection);
-  return primesCollection;
-}
-function empty() {
-  myCollection.length = 0;
-  return 'Emptied the Collection';
-}
 
-function showCollection(){
-  for (i=0; i<myCollection.length; i++){
-  console.log(`${myCollection[i].title} by ${myCollection[i].artist}, published in ${myCollection[i].yearPublished}, on ${myCollection[i].album} `);
+  myCollection.push(primesCollection);
+  return myCollection;
+}
+console.log(myCollection.collection)
+// function empty() {
+//   myCollection.length = 0;
+//   return 'Emptied the Collection';
+// }
+
+function showCollection() {
+  for (i = 0; i < myCollection.length; i++) {
+    console.log(`${myCollection[i].title} by ${myCollection[i].artist}, published in ${myCollection[i].yearPublished}, on ${myCollection[i].collection} `);
   }
   return myCollection
 }
 
+function findByArtist(collection, artist) {
+
+
+}
+
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
 console.log(addToCollection('Elevate', 'The Longest Road', 'Morgan Page', '2008'));
-
-console.log(addToCollection('Armada Music' , 'Lose This Feeling (Dimenion Remix)', 'Armin van Buuren' +', ' + 'Dimension', '2023'));
+console.log(addToCollection('Armada Music', 'Lose This Feeling (Dimenion Remix)', 'Armin van Buuren' + ', ' + 'Dimension', '2023'));
 console.log(addToCollection('Atlantic Records UK', 'Wasted Youth (Original Mix)', 'goddard.' + ', ' + 'CatBurns', '2024'));
 console.log(addToCollection('Relentless Records', 'Toxic (Phibes Remix)', 'Songer' + ', ' + 'Phibes', '2024'));
 console.log(addToCollection('Rave Room Recordings', "Vibin'", 'Kide (IT)', '2024'));
 console.log(addToCollection('Axtone Records', 'Tell Me Why (1991 Remix)', 'Supermode' + ', ' + '1991', '2023'));
 console.log(addToCollection('b2s Compilations', 'DLMD (Original Mix)', 'Darren Styles' + ', ' + 'TNT', '2024'))
 
-console.log('Testing showCollection: ' , showCollection());
+console.log('Testing showCollection: ', showCollection());
 
 
 
