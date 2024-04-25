@@ -7,26 +7,31 @@ const myCollection = [];
 // collection, title, artist, and yearPublished
 // 
 function addToCollection(collection, title, artist, yearPublished) {
-  
-  let album = collection;
-  collection = {};
-  collection.collection = album;
+  let primesCollection = {};
+  primesCollection.album = collection;
   //console.log('Album: ' , album);
-  collection.title = title;
+  primesCollection.title = title;
  // console.log('Title: ', title);
-  collection.artist = artist;
+  primesCollection.artist = artist;
  // console.log('Artist: ', artist)
-  collection.yearPublished = yearPublished;
+  primesCollection.yearPublished = yearPublished;
   //console.log('Year Published: ', yearPublished);
   
-  myCollection.push(collection);
-  return myCollection;
+  myCollection.push(primesCollection);
+  console.log(primesCollection)
+  return primesCollection;
 }
 function empty() {
   myCollection.length = 0;
   return 'Emptied the Collection';
 }
 
+function showCollection(myCollection){
+  for (i=0; i<myCollection.length; i++){
+  console.log(`${myCollection[i].title} by ${myCollection[i].artist}, published in ${myCollection[i].yearPublished}`);
+  }
+  
+}
 
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
 console.log(addToCollection('Elevate', 'The Longest Road', 'Morgan Page', '2008'));
@@ -35,10 +40,9 @@ console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kas
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
-console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Tell Me Why', 'Tell Me Why (1991 Remix)', 'Supermode', '2023'));
 
-
-
+console.log('Testing showCollection: ' , showCollection(myCollection));
 
 
 
