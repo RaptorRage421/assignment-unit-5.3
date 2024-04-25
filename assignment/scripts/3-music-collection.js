@@ -1,22 +1,42 @@
 console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
-
+// setting up a blank collection
 const myCollection = [];
 
+// creating a new function 'addToCollection', with input variables 
+// collection, title, artist, and yearPublished
+// 
 function addToCollection(collection, title, artist, yearPublished) {
-
+  
+  let album = collection;
   collection = {};
+  collection.collection = album;
+  //console.log('Album: ' , album);
   collection.title = title;
-  console.log('Title: ', title);
+ // console.log('Title: ', title);
   collection.artist = artist;
-  console.log('Artist: ', artist)
+ // console.log('Artist: ', artist)
   collection.yearPublished = yearPublished;
-  console.log('Year Published: ', yearPublished);
+  //console.log('Year Published: ', yearPublished);
+  
   myCollection.push(collection);
-  return myCollection
+  return myCollection;
+}
+function empty() {
+  myCollection.length = 0;
+  return 'Emptied the Collection';
 }
 
+
 console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Elevate', 'The Longest Road', 'Morgan Page', '2008'));
+
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+console.log(addToCollection('Strobelite Seduction', 'Angel On My Shoulder', 'Kaskade', '2008'));
+
 
 
 
