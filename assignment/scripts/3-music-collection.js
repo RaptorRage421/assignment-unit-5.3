@@ -10,8 +10,18 @@ let myCollection = [];
 
 
 function addToCollection(collection, title, artist, yearPublished) {
-  collection.push({artist, title, yearPublished})
-  return collection[5];
+  let addHelper = {};
+  console.log('in addToCollection');
+  addHelper.title = title;
+  addHelper.artist = artist;
+  addHelper.yearPublished = yearPublished;
+  collection.push(addHelper);
+  return addHelper;
+  //collection.push({artist, title, yearPublished});
+  //console.log(myCollection);
+  //return collection[5];        i know this code works, but i don't understand it..
+  //                             which is why i commented it out and made it my old way. 
+  //                             just with better understanding of the code and project. 
 }
 
 
@@ -32,31 +42,66 @@ console.log(myCollection)
 //   return 'Emptied the Collection';
 // }
 
-function showCollection(collection){
-  for (i=0; i<collection.length; i++){
-  console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
-//console.log(collection[i].title + ' by ' + collection[i].artist + ' published in ' + collection[i].yearPublished);  
-}
-return collection
-  
+function showCollection(collection) {
+  for (i = 0; i < collection.length; i++) {
+    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
+    //console.log(collection[i].title + ' by ' + collection[i].artist + ' published in ' + collection[i].yearPublished);  
+  }
+  return collection
+
 }
 
 function findByArtist(collection, artist) {
-  
- let newArray = [];
- for (i = 0; i<collection.length; i++){
 
- if (collection[i].artist === artist){
-  newArray.push(collection[i])
- }
- } 
+  let newArray = [];
+  for (i = 0; i < collection.length; i++) {
+
+    if (collection[i].artist === artist) {
+      newArray.push(collection[i])
+    }
+  }
   return newArray;
 }
 
 console.log('Testing Find Artist:', findByArtist(myCollection, 'Kaskade'));
-console.log('Testing showCollection: ', showCollection(myCollection));
+// console.log('Testing showCollection: ', showCollection(myCollection));
+
+// stretch goal: search function to search against artist and yearPublished
+function search(collection, searchCriteria ){
+  let searchArray = [];
+  let searchObject = {};
+  if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined){
+    return myCollection;
+  }
+ else {for (i=0; i<collection.length; i++){
+    
+      if (searchCriteria.artist === collection[i].artist && searchCriteria.yearPublished === collection[i].yearPublished){
+        searchObject = collection[i];
+        searchArray.push(searchObject);
+      }
+      
+  }
+  return searchArray;
+}
+}
+ 
+
+  // for (i = 0; i<collection.length; i++) {
+  //   //if (collection[i].artist === searchCriteria || collection[i].yearPublished = searchCriteria) {
+  // searchArray.push(collection[i])
+
+  //   }
+  //   return searchArray;
+  // }
 
 
+
+
+console.log('Search Test: ', search(myCollection, {artist:'Kaskade',yearPublished:'2008'}));
+console.log('Search Test: ', search(myCollection, {artist:'Songer',yearPublished:'2024'}));
+console.log('Search Test: ', search(myCollection, {artist:'Songer', yearPublished:'2020'}));
+console.log('Search Test: ', search(myCollection, {yearPublished:'2024'}));
+//console.log('Search Test: ', search(myCollection));
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
