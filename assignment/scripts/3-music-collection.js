@@ -68,19 +68,23 @@ console.log('Testing Find Artist:', findByArtist(myCollection, 'Kaskade'));
 
 // stretch goal: search function to search against artist and yearPublished
 function search(collection, searchCriteria ){
+  console.log('in search');
   let searchArray = [];
   let searchObject = {};
   if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined || searchCriteria === undefined || searchCriteria.artist.length === 0 || searchCriteria.yearPublished.length === 0){
+    console.log('input parameters are: ' ,searchCriteria);
     return collection;
   }
  else {for (i=0; i<collection.length; i++){
-    
+  
       if (searchCriteria.artist === collection[i].artist && searchCriteria.yearPublished === collection[i].yearPublished){
         searchObject = collection[i];
         searchArray.push(searchObject);
+        
       }
       
   }
+  console.log('input parameters are: ', searchCriteria);
   return searchArray;
 }
 }
@@ -104,6 +108,8 @@ console.log('Search Test - Testing no artist only year: ', search(myCollection, 
 console.log('Search Test: - Testing incorrect date: ', search(myCollection, {artist:'Songer', yearPublished:'2020'}));
 console.log('Search Test: - Testing no input criteria: ', search(myCollection));
 console.log('Search Test: - empty artist string', search(myCollection, {artist:'', yearPublished:'2020'}));
+console.log('Search Test - not an object(number): ', search(myCollection, 2008 ));
+console.log('Search Test - not an object(string): ', search(myCollection, '2008' ));
 //console.log('Search Test: ', search(myCollection));
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
