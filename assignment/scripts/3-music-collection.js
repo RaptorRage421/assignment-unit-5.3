@@ -2,22 +2,32 @@ console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
 // setting up a blank collection
 let myCollection = [];
-
+let tracks = [];
 // creating a new function 'addToCollection', with input variables 
 // collection, title, artist, and yearPublished
 // 
 //make a function where the collection input becomes an album object with a stored title, artist and yearPublished
 
 
-function addToCollection(collection, title, artist, yearPublished) {
-  let addHelper = {};
-  console.log('in addToCollection');
-  addHelper.title = title;
-  addHelper.artist = artist;
-  addHelper.yearPublished = yearPublished;
-  collection.push(addHelper);
-  return addHelper;
-  //collection.push({artist, title, yearPublished});
+function addToCollection(collection, title, artist, yearPublished, [track,duration]) {
+  //let addHelper = {};
+  tracks = [track, duration];
+  //console.log('in addToCollection');
+  // addHelper.title = title;
+
+  // addHelper.artist = artist;
+  // addHelper.yearPublished = yearPublished;
+  // //addHelper.title.push(tracks); 
+ 
+
+  
+  
+ 
+  
+  collection.push({title, artist, yearPublished, tracks});
+  
+  return collection[6];
+  // collection.push({artist, title, yearPublished, tracks});
   //console.log(myCollection);
   //return collection[5];        i know this code works, but i don't understand it..
   //                             which is why i commented it out and made it my old way. 
@@ -27,15 +37,19 @@ function addToCollection(collection, title, artist, yearPublished) {
 
 
 
-addToCollection(myCollection, 'Angel On My Shoulder', 'Kaskade', '2008');
-addToCollection(myCollection, 'Move for Me', 'Kaskade', '2008');
-addToCollection(myCollection, 'The Longest Road', 'Morgan Page', '2008');
-addToCollection(myCollection, 'Lose This Feeling (Dimenion Remix)', 'Armin van Buuren, Demension', '2023');
-addToCollection(myCollection, 'Wasted Youth (Original Mix)', 'goddard.' + ', ' + 'CatBurns', '2024');
-addToCollection(myCollection, 'Toxic (Phibes Remix)', 'Songer', '2024');
-addToCollection(myCollection, "Vibin'", 'Kide (IT)', '2024');
-addToCollection(myCollection, 'Tell Me Why (1991 Remix)', 'Supermode', '2023');
-addToCollection(myCollection, 'DLMD (Original Mix)', 'Darren Styles, ', 'TNT', '2024');
+addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['Move For Me', '3:57']); // move for me 3:57 / Angel on My Shoulder 3:47 / I Remember (Strobelite Edit) 4:43
+addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['Angel on My Shoulder', '3:47']);
+addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['I Remember (Strobelite Edit)', '4:43']);
+addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['In The Air', '7:06']); 
+addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['Against the World', '6:26'])// In The Air feat Angela McCluskey Extended Mix 7:06 / Against the World Original Mix 6:26 
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Dimension Remix)', '3:52']);
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Maddix Remix)', '4:43']);
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Make It Count', '5:04']);   // Lose This Feeling (Dimenion Remix) 3:52 / Lose This Feeling (Maddix Extended Remix) 4:43 / Make It Count 5:04
+addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth (Original Mix)', '2:27']); 
+addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth [IVY] Remix', '3:09']);// Wasted Youth feat. CatBurns (Original Mix) 2:27 / Wasted Youth feat. CatBurns [IVY] Remix 3:09
+addToCollection(myCollection, 'Rave Room Recordings', 'Kide (IT)', '2024', ["Vibin'", '4:10']);  //Vibin' 4:10
+addToCollection(myCollection, 'Axtone Records', 'Supermode', '2023', ['Tell Me Why (1991 Remix)', '4:04']); // Tell Me Why (1991 Remix) 4:04
+
 console.log(myCollection)
 // function empty() {
 //   myCollection.length = 0;
@@ -44,7 +58,7 @@ console.log(myCollection)
 
 function showCollection(collection) {
   for (i = 0; i < collection.length; i++) {
-    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}`);
+    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
     //console.log(collection[i].title + ' by ' + collection[i].artist + ' published in ' + collection[i].yearPublished);  
   }
   return collection
@@ -64,11 +78,11 @@ function findByArtist(collection, artist) {
 }
 
 console.log('Testing Find Artist:', findByArtist(myCollection, 'Kaskade'));
-// console.log('Testing showCollection: ', showCollection(myCollection));
+console.log('Testing showCollection: ', showCollection(myCollection));
 
 // stretch goal: search function to search against artist and yearPublished
 function search(collection, searchCriteria ){
-  console.log('in search');
+  //console.log('in search');
   let searchArray = [];
   let searchObject = {};
   if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined || searchCriteria === undefined || searchCriteria.artist.length === 0 || searchCriteria.yearPublished.length === 0){
