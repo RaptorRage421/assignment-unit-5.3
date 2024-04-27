@@ -70,8 +70,8 @@ console.log('Testing Find Artist:', findByArtist(myCollection, 'Kaskade'));
 function search(collection, searchCriteria ){
   let searchArray = [];
   let searchObject = {};
-  if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined){
-    return myCollection;
+  if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined || searchCriteria === undefined){
+    return collection;
   }
  else {for (i=0; i<collection.length; i++){
     
@@ -99,8 +99,10 @@ function search(collection, searchCriteria ){
 
 console.log('Search Test: ', search(myCollection, {artist:'Kaskade',yearPublished:'2008'}));
 console.log('Search Test: ', search(myCollection, {artist:'Songer',yearPublished:'2024'}));
-console.log('Search Test: ', search(myCollection, {artist:'Songer', yearPublished:'2020'}));
+
 console.log('Search Test: ', search(myCollection, {yearPublished:'2024'}));
+console.log('Search Test: ', search(myCollection, {artist:'Songer', yearPublished:'2020'}));
+console.log('Search Test: ', search(myCollection));
 //console.log('Search Test: ', search(myCollection));
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
