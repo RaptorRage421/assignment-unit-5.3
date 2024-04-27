@@ -9,24 +9,37 @@ let tracks = [];
 //make a function where the collection input becomes an album object with a stored title, artist and yearPublished
 
 
-function addToCollection(collection, title, artist, yearPublished, [track,duration]) {
-  //let addHelper = {};
-  tracks = [track, duration];
-  //console.log('in addToCollection');
-  // addHelper.title = title;
-
-  // addHelper.artist = artist;
-  // addHelper.yearPublished = yearPublished;
-  // //addHelper.title.push(tracks); 
- 
-
+function addToCollection(collection, title, artist, yearPublished,trackers) { //...[track,duration]
+  let addHelper = {};
+  tracker = [];
+  //tracks = [track, duration];
+  // for (i=0;i<collection.length;i++){
+  //   console.log(collection[i].title)
+  //   if (collection[i].title === title && collection[i].artist === artist && collection[i].yearPublished === yearPublished){
+    tracker.push(trackers)
+  addHelper.tracks = tracker
+      
+  //     addHelper = collection[i];
+  //     tracker.push(trackers);
+  //     addHelper.tracks = tracker;
+      
+  //     return tracker;
+  //   }
+  // }
+  console.log('in addToCollection');
+  addHelper.title = title;
+  addHelper.artist = artist;
+  addHelper.yearPublished = yearPublished;
+  addHelper.tracks = tracker;
+  collection.push(addHelper);
+  return addHelper;
   
   
  
   
-  collection.push({title, artist, yearPublished, tracks});
+  // collection.push({title, artist, yearPublished, tracks});
   
-  return collection[6];
+  // return collection[5];
   // collection.push({artist, title, yearPublished, tracks});
   //console.log(myCollection);
   //return collection[5];        i know this code works, but i don't understand it..
@@ -39,14 +52,14 @@ function addToCollection(collection, title, artist, yearPublished, [track,durati
 
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['Move For Me', '3:57']); // move for me 3:57 / Angel on My Shoulder 3:47 / I Remember (Strobelite Edit) 4:43
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['Angel on My Shoulder', '3:47']);
-addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['I Remember (Strobelite Edit)', '4:43']);
+addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008',['I Remember (Strobelite Edit)', '4:43'] );
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['In The Air', '7:06']); 
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['Against the World', '6:26'])// In The Air feat Angela McCluskey Extended Mix 7:06 / Against the World Original Mix 6:26 
-addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Dimension Remix)', '3:52']);
-addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Maddix Remix)', '4:43']);
-addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Make It Count', '5:04']);   // Lose This Feeling (Dimenion Remix) 3:52 / Lose This Feeling (Maddix Extended Remix) 4:43 / Make It Count 5:04
-addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth (Original Mix)', '2:27']); 
-addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth [IVY] Remix', '3:09']);// Wasted Youth feat. CatBurns (Original Mix) 2:27 / Wasted Youth feat. CatBurns [IVY] Remix 3:09
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Dimension Remix)', '3:52'],['Lose This Feeling (Maddix Remix)', '4:43'],['Make It Count', '5:04']);
+//addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', );
+//addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', );   // Lose This Feeling (Dimenion Remix) 3:52 / Lose This Feeling (Maddix Extended Remix) 4:43 / Make It Count 5:04
+addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth (Original Mix)', '2:27'],['Wasted Youth [IVY] Remix', '3:09']); 
+//addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth [IVY] Remix', '3:09']);// Wasted Youth feat. CatBurns (Original Mix) 2:27 / Wasted Youth feat. CatBurns [IVY] Remix 3:09
 addToCollection(myCollection, 'Rave Room Recordings', 'Kide (IT)', '2024', ["Vibin'", '4:10']);  //Vibin' 4:10
 addToCollection(myCollection, 'Axtone Records', 'Supermode', '2023', ['Tell Me Why (1991 Remix)', '4:04']); // Tell Me Why (1991 Remix) 4:04
 
@@ -58,7 +71,8 @@ console.log(myCollection)
 
 function showCollection(collection) {
   for (i = 0; i < collection.length; i++) {
-    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}:`);
+    console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}: `);
+
     //console.log(collection[i].title + ' by ' + collection[i].artist + ' published in ' + collection[i].yearPublished);  
   }
   return collection
