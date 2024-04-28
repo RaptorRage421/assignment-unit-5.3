@@ -2,7 +2,7 @@ console.log('***** Music Collection *****')
 // Safe Zone -- Write code below this line
 // setting up a blank collection
 let myCollection = [];
-let tracks = [];
+
 // creating a new function 'addToCollection', with input variables 
 // collection, title, artist, and yearPublished
 // 
@@ -11,21 +11,16 @@ let tracks = [];
 
 function addToCollection(collection, title, artist, yearPublished, trackers) { //...[track,duration]
   let addHelper = {};
-  tracker = [];
-
+  let tracker = [];
+ 
+  
   tracker = trackers;
   for (i = 0; i < collection.length; i++) {
-
     if (collection[i].title === title) {
-
       addHelper.tracks = tracker;
-
       collection[i].tracks.splice(2, 0, trackers);
-
-
       return;
     }
-
   }
   console.log('in addToCollection');
   addHelper.title = title;
@@ -34,8 +29,6 @@ function addToCollection(collection, title, artist, yearPublished, trackers) { /
   addHelper.tracks = [tracker];
   collection.push(addHelper);
   return addHelper;
-
-
 
   // collection.push({title, artist, yearPublished, tracks});
 
@@ -63,29 +56,24 @@ addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Waste
 addToCollection(myCollection, 'Rave Room Recordings', 'Kide (IT)', '2024', ["Vibin'", '4:10']);  //Vibin' 4:10
 addToCollection(myCollection, 'Axtone Records', 'Supermode', '2023', ['Tell Me Why (1991 Remix)', '4:04']); // Tell Me Why (1991 Remix) 4:04
 
-console.log(myCollection)
+//console.log(myCollection)
 // function empty() {
 //   myCollection.length = 0;
 //   return 'Emptied the Collection';
 // }
 
 function showCollection(collection) {
-  console.log('in showcollection')
+  console.log('This is my collection: ', collection)
   for (let i = 0; i < collection.length; i++) {
     console.log(`${collection[i].title} by ${collection[i].artist}, published in ${collection[i].yearPublished}: `);
     for (let j = 0; j < collection[i].tracks.length; j++) {
       console.log(`     ${j + 1}. NAME: ${collection[i].tracks[j][0]} DURATION: ${collection[i].tracks[j][1]}`)
-    }
-    
-    //if (collection[i].tracks.length > 0){
-    //console.log('Name: ',myCollection[i].tracks[i][0], ' Duration: ' , myCollection[i].tracks[i][1])
-    //}
-    //console.log(collection[i].title + ' by ' + collection[i].artist + ' published in ' + collection[i].yearPublished);  
+    } 
   }
-  return collection
-
+  
 }
-// console.log(myCollection[0].tracks[2][1])  Name: myCollection[i].tracks[i][0] Duration: myCollection[i].tracks[i][1]
+
+
 function findByArtist(collection, artist) {
 
   let newArray = [];
@@ -102,10 +90,25 @@ console.log('Testing Find Artist:', findByArtist(myCollection, 'Kaskade'));
 console.log('Testing showCollection: ', showCollection(myCollection));
 
 // stretch goal: search function to search against artist and yearPublished
-function search(collection, searchCriteria) {
+//adding the extra stretch search for track name. adding optional parameter, to use if there, otherwise as normal
+
+function search(collection, searchCriteria, trackName) {
   //console.log('in search');
   let searchArray = [];
   let searchObject = {};
+  if (trackName) {
+  for (let i=0;i<collection.length; i++){
+    for(let j=0;j<collection[i].tracks.length;j++){
+      if(collection[i].tracks[j][0] === trackName ){
+        console.log('input parameters are: ', trackName)
+        searchObject = collection[i];
+        searchArray.push(searchObject);
+        return searchArray;
+        }
+    } 
+  }
+}
+if (searchCriteria){
   if (typeof searchCriteria !== 'object' || searchCriteria.yearPublished === undefined || searchCriteria.artist === undefined || searchCriteria === undefined || searchCriteria.artist.length === 0 || searchCriteria.yearPublished.length === 0) {
     console.log('input parameters are: ', searchCriteria);
     return collection;
@@ -121,6 +124,7 @@ function search(collection, searchCriteria) {
     console.log('input parameters are: ', searchCriteria);
     return searchArray;
   }
+}
 }
 
 
@@ -144,9 +148,14 @@ console.log('Search Test: - Testing no input criteria: ', search(myCollection));
 console.log('Search Test: - empty artist string', search(myCollection, { artist: '', yearPublished: '2020' }));
 console.log('Search Test - not an object(number): ', search(myCollection, 2008));
 console.log('Search Test - not an object(string): ', search(myCollection, '2008'));
+console.log('Search Test: Testing Song Name: ', search(myCollection,{ artist: 'Kaskade', yearPublished: '2008' },'Tell Me Why (1991 Remix)'))
+console.log('Search Test - song title again: ', search(myCollection, { yearPublished: '2024' }, 'In The Air'));
+
+
+
 //console.log('Search Test: ', search(myCollection));
 
-console.log(myCollection[0].tracks[2][1])
+//console.log(myCollection[0].tracks[2][1])
 
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
