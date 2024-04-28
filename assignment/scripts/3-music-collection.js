@@ -13,29 +13,37 @@ function addToCollection(collection, title, artist, yearPublished,trackers) { //
   let addHelper = {};
   tracker = [];
   //tracks = [track, duration];
-  // for (i=0;i<collection.length;i++){
-  //   console.log(collection[i].title)
-  //   if (collection[i].title === title && collection[i].artist === artist && collection[i].yearPublished === yearPublished){
-    tracker.push(trackers)
-  addHelper.tracks = tracker
+  tracker = trackers;
+  for (i=0;i<collection.length;i++){
+    //console.log('hi', collection[i].title)
+    if (collection[i].title === title ){
+      //&& collection[i].artist === artist && collection[i].yearPublished === yearPublished && typeof trackers === 'array'){
+      //tracker.tracks.push = tracker;
+      addHelper.tracks = tracker;
+      console.log('HI! ', addHelper)
+      collection[i].tracks.splice(2, 0,trackers);
+    // if (collection[i].title === title) {
+    
+ //tracker.push(trackers[i]);
+
       
   //     addHelper = collection[i];
   //     tracker.push(trackers);
   //     addHelper.tracks = tracker;
       
-  //     return tracker;
-  //   }
-  // }
+     return addHelper.tracks;
+    }
+  
+  }
   console.log('in addToCollection');
   addHelper.title = title;
   addHelper.artist = artist;
   addHelper.yearPublished = yearPublished;
-  addHelper.tracks = tracker;
+  addHelper.tracks = [tracker];
   collection.push(addHelper);
   return addHelper;
   
   
- 
   
   // collection.push({title, artist, yearPublished, tracks});
   
