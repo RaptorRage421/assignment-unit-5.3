@@ -9,19 +9,19 @@ let tracks = [];
 //make a function where the collection input becomes an album object with a stored title, artist and yearPublished
 
 
-function addToCollection(collection, title, artist, yearPublished,trackers) { //...[track,duration]
+function addToCollection(collection, title, artist, yearPublished,[name, duration]) { //...[track,duration]
   let addHelper = {};
   tracker = [];
   //tracks = [track, duration];
-  tracker = trackers;
+  tracker = [name,duration];
   for (i=0;i<collection.length;i++){
     //console.log('hi', collection[i].title)
     if (collection[i].title === title ){
       //&& collection[i].artist === artist && collection[i].yearPublished === yearPublished && typeof trackers === 'array'){
       //tracker.tracks.push = tracker;
       addHelper.tracks = tracker;
-      console.log('HI! ', addHelper)
-      collection[i].tracks.splice(2, 0,trackers);
+      // console.log('HI! ', addHelper)
+      collection[i].tracks.splice(2, 0,tracker);
     // if (collection[i].title === title) {
     
  //tracker.push(trackers[i]);
@@ -31,7 +31,7 @@ function addToCollection(collection, title, artist, yearPublished,trackers) { //
   //     tracker.push(trackers);
   //     addHelper.tracks = tracker;
       
-     return addHelper.tracks;
+     return;
     }
   
   }
@@ -63,11 +63,11 @@ addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', ['Angel
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008',['I Remember (Strobelite Edit)', '4:43'] );
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['In The Air', '7:06']); 
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', ['Against the World', '6:26'])// In The Air feat Angela McCluskey Extended Mix 7:06 / Against the World Original Mix 6:26 
-addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Dimension Remix)', '3:52'],['Lose This Feeling (Maddix Remix)', '4:43'],['Make It Count', '5:04']);
-//addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', );
-//addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', );   // Lose This Feeling (Dimenion Remix) 3:52 / Lose This Feeling (Maddix Extended Remix) 4:43 / Make It Count 5:04
-addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth (Original Mix)', '2:27'],['Wasted Youth [IVY] Remix', '3:09']); 
-//addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth [IVY] Remix', '3:09']);// Wasted Youth feat. CatBurns (Original Mix) 2:27 / Wasted Youth feat. CatBurns [IVY] Remix 3:09
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', ['Lose This Feeling (Dimension Remix)', '3:52']);
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023',['Lose This Feeling (Maddix Remix)', '4:43']);
+addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023',['Make It Count', '5:04']);   // Lose This Feeling (Dimenion Remix) 3:52 / Lose This Feeling (Maddix Extended Remix) 4:43 / Make It Count 5:04
+addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth (Original Mix)', '2:27']); 
+addToCollection(myCollection, 'Atlantic Records UK', 'goddard.', '2024', ['Wasted Youth [IVY] Remix', '3:09']);// Wasted Youth feat. CatBurns (Original Mix) 2:27 / Wasted Youth feat. CatBurns [IVY] Remix 3:09
 addToCollection(myCollection, 'Rave Room Recordings', 'Kide (IT)', '2024', ["Vibin'", '4:10']);  //Vibin' 4:10
 addToCollection(myCollection, 'Axtone Records', 'Supermode', '2023', ['Tell Me Why (1991 Remix)', '4:04']); // Tell Me Why (1991 Remix) 4:04
 
