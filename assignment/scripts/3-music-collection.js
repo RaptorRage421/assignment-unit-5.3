@@ -9,11 +9,11 @@ let tracks = [];
 //make a function where the collection input becomes an album object with a stored title, artist and yearPublished
 
 
-function addToCollection(collection, title, artist, yearPublished,[name, duration]) { //...[track,duration]
+function addToCollection(collection, title, artist, yearPublished,trackers) { //...[track,duration]
   let addHelper = {};
   tracker = [];
   //tracks = [track, duration];
-  tracker = [name,duration];
+  tracker = trackers;
   for (i=0;i<collection.length;i++){
     //console.log('hi', collection[i].title)
     if (collection[i].title === title ){
@@ -21,7 +21,7 @@ function addToCollection(collection, title, artist, yearPublished,[name, duratio
       //tracker.tracks.push = tracker;
       addHelper.tracks = tracker;
       // console.log('HI! ', addHelper)
-      collection[i].tracks.splice(2, 0,tracker);
+      collection[i].tracks.splice(2, 0,trackers);
     // if (collection[i].title === title) {
     
  //tracker.push(trackers[i]);
@@ -147,6 +147,9 @@ console.log('Search Test: - empty artist string', search(myCollection, {artist:'
 console.log('Search Test - not an object(number): ', search(myCollection, 2008 ));
 console.log('Search Test - not an object(string): ', search(myCollection, '2008' ));
 //console.log('Search Test: ', search(myCollection));
+
+console.log(myCollection[0].tracks[2][1])
+
 
 // PLEASE DO NOT MODIFY THIS. Just leave it down here at the bottom. Think of it
 // as a lil' chunk of friendly code that you don't need to understand right now.
