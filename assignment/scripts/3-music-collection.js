@@ -62,7 +62,7 @@ actually add files to the collection
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', 'Move For Me', '3:57'); // move for me 3:57 / Angel on My Shoulder 3:47 / I Remember (Strobelite Edit) 4:43
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', 'Angel on My Shoulder', '3:47');
 addToCollection(myCollection, 'Strobelite Seduction', 'Kaskade', '2008', 'I Remember (Strobelite Edit)', '4:43');
-addToCollection(myCollection, 'Dynasty', 'Kaskade', '2008', 'Fire in Your Shoes', '2:39');
+addToCollection(myCollection, 'Dynasty', 'Kaskade', '2008', 'Fire in Your Shoes', '2:39'); // this is the incorrect date for this album, but it was for testing the search functions 
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', 'In The Air', '7:06');
 addToCollection(myCollection, 'Nettwerk Music Group', 'Morgan Page', '2014', 'Against the World', '6:26')// In The Air feat Angela McCluskey Extended Mix 7:06 / Against the World Original Mix 6:26 
 addToCollection(myCollection, 'Armada Music', 'Armin van Buuren', '2023', 'Lose This Feeling (Dimension Remix)', '3:52');
@@ -134,7 +134,7 @@ function search(collection, searchCriteria, trackName) {
   //console.log('in search');
   let searchArray = [];
   let searchObject = {};
-  if (typeof searchCriteria === 'string' || trackName ) {
+  if (typeof searchCriteria === 'string' || trackName) {
     for (let i = 0; i < collection.length; i++) {
       for (let j = 0; j < collection[i].tracks.length; j++) {
         if (collection[i].tracks[j].name === trackName || collection[i].tracks[j].name === searchCriteria) {
@@ -187,9 +187,9 @@ console.log('Search Test: - no artist string', search(myCollection, { yearPublis
 console.log('Search Test - not an object(number): ', search(myCollection, 2008));
 console.log('Search Test - not an object(string): ', search(myCollection, '2008'));
 console.log('Search Test: Testing Song Name: ', search(myCollection, { artist: 'Kaskade', yearPublished: '2008' }, 'Tell Me Why (1991 Remix)'))
-console.log('Search Test - song title again: ', search(myCollection, 'In The Air'));
-console.log('Search Test: song title only no artist/year input: ', search(myCollection, 'Wasted Youth [IVY] Remix'))
-console.log('Search Test: - no yearPublished string (expecting full collection)', search(myCollection, { artist: 'Armin van Buuren' }));
+console.log('Search Test - testing searchCriteria === string', search(myCollection, 'In The Air'));
+console.log('Search Test - testing searchCriteria === string', search(myCollection, 'Wasted Youth [IVY] Remix'))
+console.log('Search Test - no yearPublished attribute (expecting full collection):', search(myCollection, { artist: 'Armin van Buuren' }));
 
 
 //console.log('Search Test: ', search(myCollection));
